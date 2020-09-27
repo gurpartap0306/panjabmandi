@@ -25,7 +25,7 @@ SECRET_KEY = ')-i@!zndd@eeyergku@=t(@ruc60d1&tha3y%bn!%$+qu@q5_='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.137.205.96','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['3.137.205.96','panjabmandi.in','localhost','127.0.0.1']
 
 
 # Application definition
