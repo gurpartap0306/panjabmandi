@@ -47,13 +47,13 @@ def register(request):
 
         #attemp to create new user
         try:
-            user = User.object.create_user(user,email,password)
+            user = User.object.create_user(username,email,password)
             user.save()
         except IntegrityError:
             return render(request,"myapp.register.html",{
             "message": "Username already taken."
             })
         login(request,user)
-        return HttpResponseRedirect("index")
+        return HttpResponseRedirect(reverse("index"))
     else:
         return render(request,"myapp/register.html")
