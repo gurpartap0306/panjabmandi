@@ -6,6 +6,8 @@ from django.urls import reverse
 
 # Create your views here.
 
+from .models import User
+
 def index(request):
     return render(request,"myapp/index.html")
 
@@ -47,13 +49,13 @@ def register(request):
 
         #attemp to create new user
         try:
-            user = User.object.create_user(user,email,password)
+            user = User.objects.create_user(username,email,password)
             user.save()
         except IntegrityError:
             return render(request,"myapp.register.html",{
             "message": "Username already taken."
             })
         login(request,user)
-        return HttpResponseRedirect("index")
+        return HttpResponseRedirect(reverse("index"))
     else:
         return render(request,"myapp/register.html")
